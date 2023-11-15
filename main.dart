@@ -136,69 +136,30 @@ class ListDataPage extends StatefulWidget {
 }
 
 class _ListDataPageState extends State<ListDataPage> {
-  final List<Map<String, String>> films = [
+  final List<Map<String, String>> barang = [
     {
-      'title': 'monitor',
-      'harga': '4.8',
-      'imageUrl': 'https://example.com/inception.jpg',
-      'description': 'A mind-bending action film.',
+      'title': 'Acer Nitro AN515 NVIDIA GTX 1050Ti',
+      'harga': '1299',
+      'imageUrl':
+          'https://static-ecapac.acer.com/media/catalog/product/n/i/nitro5-an515-58-rgbkb-black-gallery-01_1_1_nh.qhysn.002_1.png?optimize=high&bg-color=255,255,255&fit=bounds&height=500&width=500&canvas=500:500&format=jpeg',
+      'description': 'Acer Gaming',
     },
     {
-      'title': 'VGA',
-      'harga': '4.9',
-      'imageUrl': 'https://example.com/shawshank_redemption.jpg',
-      'description': 'A tale of hope and redemption.',
+      'title': 'VGA NVIDIA RTX 4080',
+      'harga': '4599',
+      'imageUrl':
+          'https://images.tokopedia.net/img/cache/250-square/VqbcmM/2022/12/20/006c691b-2696-4fd0-a704-bf714a43de0b.jpg',
+      'description': 'NVIDIA RTX 4080',
     },
     {
-      'title': 'Keyboard',
-      'harga': '4.8',
-      'imageUrl': 'https://example.com/inception.jpg',
-      'description': 'A mind-bending action film.',
-    },
-    {
-      'title': 'Gamepad',
-      'harga': '4.9',
-      'imageUrl': 'https://example.com/shawshank_redemption.jpg',
-      'description': 'A tale of hope and redemption.',
-    },
-    {
-      'title': 'LCD',
-      'harga': '4.8',
-      'imageUrl': 'https://example.com/inception.jpg',
-      'description': 'A mind-bending action film.',
-    },
-    {
-      'title': 'Mouse',
-      'harga': '4.9',
-      'imageUrl': 'https://example.com/shawshank_redemption.jpg',
-      'description': 'A tale of hope and redemption.',
-    },
-    {
-      'title': 'Memory',
-      'harga': '4.8',
-      'imageUrl': 'https://example.com/inception.jpg',
-      'description': 'A mind-bending action film.',
-    },
-    {
-      'title': 'headset',
-      'harga': '4.9',
-      'imageUrl': 'https://example.com/shawshank_redemption.jpg',
-      'description': 'A tale of hope and redemption.',
-    },
-    {
-      'title': 'charger',
-      'harga': '4.8',
-      'imageUrl': 'https://example.com/inception.jpg',
-      'description': 'A mind-bending action film.',
-    },
-    {
-      'title': 'Printer',
-      'harga': '4.9',
-      'imageUrl': 'https://example.com/shawshank_redemption.jpg',
-      'description': 'A tale of hope and redemption.',
+      'title': 'Keyboard Vortex Series VX5',
+      'harga': '35',
+      'imageUrl':
+          'https://images.tokopedia.net/img/cache/700/VqbcmM/2022/10/6/fb7c61a9-2ff7-49fd-970a-02a5fd314263.jpg',
+      'description': 'Keyboard Mechanical',
     },
 
-    // Add more films as needed
+    // Add more barang as needed
   ];
 
   // Function to show a delete confirmation dialog
@@ -221,7 +182,7 @@ class _ListDataPageState extends State<ListDataPage> {
               onPressed: () {
                 // Perform the delete operation
                 setState(() {
-                  films.removeAt(index);
+                  barang.removeAt(index);
                 });
                 Navigator.of(context).pop();
               },
@@ -333,7 +294,7 @@ class _ListDataPageState extends State<ListDataPage> {
         ),
       ),
       body: ListView.builder(
-        itemCount: films.length,
+        itemCount: barang.length,
         itemBuilder: (BuildContext context, int index) {
           return Card(
             elevation: 5,
@@ -341,10 +302,10 @@ class _ListDataPageState extends State<ListDataPage> {
             child: ListTile(
               contentPadding: EdgeInsets.all(15),
               title: Text(
-                '${index + 1}. ${films[index]['title']}',
+                '${index + 1}. ${barang[index]['title']}',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              subtitle: Text('Price: \$${films[index]['harga']}'),
+              subtitle: Text('Price: \$${barang[index]['harga']}'),
               trailing: IconButton(
                 icon: Icon(Icons.delete, color: Colors.red),
                 onPressed: () {
@@ -356,9 +317,9 @@ class _ListDataPageState extends State<ListDataPage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => DetailFilmPage(
-                      filmTitle: films[index]['title']!,
-                      imageUrl: films[index]['imageUrl']!,
-                      description: films[index]['description']!,
+                      filmTitle: barang[index]['title']!,
+                      imageUrl: barang[index]['imageUrl']!,
+                      description: barang[index]['description']!,
                     ),
                   ),
                 );
@@ -379,7 +340,7 @@ class _ListDataPageState extends State<ListDataPage> {
           // Check if a new film was added
           if (result != null && result is Map<String, String>) {
             setState(() {
-              films.add(result);
+              barang.add(result);
             });
           }
         },
